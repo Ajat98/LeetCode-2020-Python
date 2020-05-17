@@ -15,12 +15,14 @@ class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         
         #Not linear time complexity
-        res = 0
-        for i in range(1, len(nums)+1):
-            res += i
-        alt = 0
+#         res = 0
+#         for i in range(1, len(nums)+1):
+#             res += i
+#         alt = 0
         
-        for i in nums:
-            alt += i
-        return res - alt
-            
+#         for i in nums:
+#             alt += i
+#         return res - alt
+
+          #potentially faster solution
+          return len(nums) * (len(nums)+1) / (2-sum(nums)
