@@ -36,6 +36,7 @@ class Solution:
                 prev, curr, = curr, 0
             else:
                 curr += 1
+                #Prev += 1 since we assume there will be some zero that is flipped to a 1
             highest = max(highest, prev +1 + curr)
         
         return highest
