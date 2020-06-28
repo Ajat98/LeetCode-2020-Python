@@ -1,6 +1,39 @@
 class Solution:
     def islandPerimeter(self, grid: List[List[int]]) -> int:
         
+        #Optimal time solution
+        s, m = len(grid), len(grid[0])
+        ans = 0
+        for x in range(s):
+            for y in range(m):
+                if grid[x][y] == 1:
+                    ans += 4
+                    if x < s - 1 and grid[x+1][y] == 1:
+                        ans -= 2
+                    if y < m - 1 and grid[x][y+1] == 1:
+                        ans -= 2
+
+        return ans
+        
+        
+        '''
+        #Concise solution
+        if not grid:
+            return 0
+        rows = len(grid)
+        cols = len(grid[0])
+        
+        count = 0
+        for i in range(rows):
+            for j in range(cols):
+                if grid[i][j] == 1:
+                    for k in [(-1, 0), (0, -1), (1, 0), (0, -1)]:
+                        if i+k[0] < 0 or i+k[0] >=rows or j+k[1] < 0 or j+k[1] >= cols or grid[i+k[0]][j+k[1]] == 0:
+                            count += 1
+        return count
+        '''
+        '''
+        ORIGINAL MESSY SOLUTION
         cols = len(grid[0])
         rows = len(grid)
         edges = 0
@@ -28,6 +61,6 @@ class Solution:
                     edges += tile_edges
         
         return edges
-                    
+        '''            
                     
                    
