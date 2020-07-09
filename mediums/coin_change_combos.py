@@ -5,7 +5,9 @@ class Solution:
         
         combinations = (amount+1) * [0]
         
+        #only way to make zero coins is with no coins, count this as 1
         combinations[0] = 1
+        
         for coin in coins:
             for i in range(len(combinations)):
                 if i >= coin:
@@ -15,4 +17,5 @@ class Solution:
                     
         return combinations[amount]
         
+       
        
